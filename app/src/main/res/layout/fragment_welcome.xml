@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".presentation.fragment.HomeFragment">
+
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="56dp"
+        android:gravity="center"
+        android:text="@string/welcome"
+        android:textColor="#1565C0"
+        android:textSize="@dimen/text_size_48" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/user_name_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:hint="@string/username"
+        android:textColorHint="#003C8F"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:startIconDrawable="@drawable/ic_person_24"
+        app:startIconTint="#003C8F">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/user_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textAutoComplete"
+            android:maxLines="1"
+            android:textColor="#003C8F"
+            android:textSize="@dimen/text_size_18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:hint="@string/password"
+        android:textColorHint="#003C8F"
+        app:endIconMode="password_toggle"
+        app:errorEnabled="true"
+        app:startIconDrawable="@drawable/ic_lock_24"
+        app:startIconTint="#003C8F">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:textColor="#003C8F"
+            android:textSize="18sp"
+            app:passwordToggleEnabled="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:backgroundTint="#1565C0"
+        android:text="@string/sign_in"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/text_size_18sp" />
+
+    <TextView
+        android:id="@+id/tv_or"
+        android:layout_width="17dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="13dp"
+        android:text="@string/or"
+        android:textColor="#003C8F"
+        android:textSize="@dimen/text_size_18sp" />
+
+    <Button
+        android:id="@+id/btn_live_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:backgroundTint="#BBDEFB"
+        android:text="@string/live_video"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/text_size_18sp" />
+
+</LinearLayout>

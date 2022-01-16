@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">FeelSoftwareTestApp</string>
+    <string name="welcome">WELCOME!</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="live_video">LIVE VIDEO</string>
+    <string name="or">or</string>
+    <string name="log_out">log out</string>
+    <string name="hello_username">Hello, %1$s</string>
+    <string name="data_updated">Data from API updated %1$s seconds ago…</string>
+    <string name="close">Close</string>
+    <string name="status">Status: %1$s</string>
+    <string name="no_filter">No filter</string>
+    <string name="disabled">Disabled</string>
+    <string name="hidden">Hidden</string>
+    <string name="available">Available</string>
+    <string name="select_filter">Select filter</string>
+    <string name="error_field_is_empty">Error: Field is empty!</string>
+    <string name="required_field">Required Field!</string>
+
+    <string-array name="filters">
+        <item>No filter</item>
+        <item>Available</item>
+        <item>Hidden</item>
+        <item>Disabled</item>
+    </string-array>
+</resources>

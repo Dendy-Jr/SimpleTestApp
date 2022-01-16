@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frameLayout"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_35dp"
+    android:layout_marginEnd="@dimen/margin_35dp"
+    android:layout_marginBottom="12dp"
+    tools:background="#FBE9BB">
+
+    <TextView
+        android:id="@+id/tv_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_15dp"
+        android:layout_marginBottom="@dimen/margin_15dp"
+        android:gravity="center"
+        android:textColor="#003C8F"
+        android:textSize="37sp"
+        tools:text="56817111" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="2dp"
+        android:textColor="#003C8F"
+        android:textSize="11sp"
+        tools:text="6:45:31,21.09.21" />
+
+</FrameLayout>
