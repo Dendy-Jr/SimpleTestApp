@@ -1,7 +1,7 @@
 package com.dendi.android.feelsoftwaretestapp.di
 
 import com.dendi.android.feelsoftwaretestapp.BuildConfig
-import com.dendi.android.feelsoftwaretestapp.data.cars.CarsService
+import com.dendi.android.feelsoftwaretestapp.data.cars.CarsApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -29,8 +29,8 @@ val networkModule = module {
 
     factory { getRetrofit(client = get(), gsonConverterFactory = get()) }
 
-    fun getCarsService(retrofit: Retrofit): CarsService {
-        return retrofit.create(CarsService::class.java)
+    fun getCarsService(retrofit: Retrofit): CarsApi {
+        return retrofit.create(CarsApi::class.java)
     }
 
     factory { getCarsService(retrofit = get()) }

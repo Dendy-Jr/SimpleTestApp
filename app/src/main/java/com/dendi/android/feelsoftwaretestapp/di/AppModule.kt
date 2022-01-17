@@ -10,5 +10,5 @@ val appModule = module {
 
     viewModel<HomeViewModel> { HomeViewModel(repository = get()) }
 
-    viewModel<CarsViewModel> { CarsViewModel(repository = get(), getCarsUseCase = get()) }
+    viewModel<CarsViewModel> { CarsViewModel(repository = get(), getCarsUseCase = get(), mapper = get() ) }
 }

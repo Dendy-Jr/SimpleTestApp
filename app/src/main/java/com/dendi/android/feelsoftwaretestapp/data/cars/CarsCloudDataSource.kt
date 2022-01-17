@@ -5,8 +5,7 @@ interface CarsCloudDataSource {
 
     suspend fun fetchCars(): CarsResponse
 
-    class CarsCloudDataSourceImpl(private val service: CarsService) : CarsCloudDataSource {
-        override suspend fun fetchCars(): CarsResponse =
-            service.fetchCars()
+    class CarsCloudDataSourceImpl(private val api: CarsApi) : CarsCloudDataSource {
+        override suspend fun fetchCars(): CarsResponse = api.fetchCars()
     }
 }

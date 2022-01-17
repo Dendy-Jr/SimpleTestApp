@@ -14,6 +14,7 @@ import com.dendi.android.feelsoftwaretestapp.core.OnClickListener
 import com.dendi.android.feelsoftwaretestapp.databinding.FragmentMainBinding
 import com.dendi.android.feelsoftwaretestapp.domain.cars.entity.Car
 import com.dendi.android.feelsoftwaretestapp.presentation.adapter.CarsAdapter
+import com.dendi.android.feelsoftwaretestapp.presentation.util.NetworkResult
 import com.dendi.android.feelsoftwaretestapp.presentation.viewmodel.CarsViewModel
 import com.google.android.material.button.MaterialButton
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -27,13 +28,32 @@ class CarsFragment : BaseFragment<FragmentMainBinding>() {
         }
     })
 
+    private var carsList: List<Car>? = null
+
     override fun getViewBinding() = FragmentMainBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        collectLatestLifecycleFlow(viewModel.car) {
-            carsAdapter.update(it)
+        collectLatestLifecycleFlow(viewModel.car) { response ->
+            binding.run {
+                when (response) {
+                    is NetworkResult.Success -> {
+                        carsList = response.data!!
+                        profress.isVisible = false
+                        tvError.isVisible = false
+                        carsAdapter.update(response.data)
+                    }
+                    is NetworkResult.Loading -> {
+                        profress.isVisible = true
+                        tvError.isVisible = false
+                    }
+                    is NetworkResult.Error -> {
+                        profress.isVisible = false
+                        tvError.isVisible = true
+                    }
+                }
+            }
         }
         setTimeWhenApiCalled()
 
@@ -107,26 +127,32 @@ class CarsFragment : BaseFragment<FragmentMainBinding>() {
         val buttonDisabled = view.findViewById<MaterialButton>(R.id.button_disabled)
 
         buttonNoFilter.setOnClickListener {
-            carsAdapter.update(viewModel.car.value)
+            carsAdapter.update(carsList!!)
             dialog?.dismiss()
         }
 
         buttonAvailable.setOnClickListener {
-            carsAdapter.update(viewModel.car.value.filter {
-                it.state == CarFilter.AVAILABLE.state
-            })
+            carsList?.let { it1 ->
+                carsAdapter.update(it1.filter {
+                    it.state == CarFilter.AVAILABLE.state
+                })
+            }
             dialog?.dismiss()
         }
         buttonHidden.setOnClickListener {
-            carsAdapter.update(viewModel.car.value.filter {
-                it.state == CarFilter.HIDDEN.state
-            })
+            carsList?.let { it1 ->
+                carsAdapter.update(it1.filter {
+                    it.state == CarFilter.HIDDEN.state
+                })
+            }
             dialog?.dismiss()
         }
         buttonDisabled.setOnClickListener {
-            carsAdapter.update(viewModel.car.value.filter {
-                it.state == CarFilter.DISABLED.state
-            })
+            carsList?.let { it1 ->
+                carsAdapter.update(it1.filter {
+                    it.state == CarFilter.DISABLED.state
+                })
+            }
             dialog?.dismiss()
         }
 
